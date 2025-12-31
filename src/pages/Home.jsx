@@ -72,10 +72,17 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 1 }}
           >
-            {[BiLogoGmail, IoLogoLinkedin, IoLogoWhatsapp, BsGithub].map((Icon, index) => (
+            {[
+              { Icon: BiLogoGmail, href: "mailto:mohammedshn2002@gmail.com" },
+              { Icon: IoLogoLinkedin, href: "https://www.linkedin.com/in/mohamad-sahan" },
+              { Icon: IoLogoWhatsapp, href: "https://wa.me/94704268704" },
+              { Icon: BsGithub, href: "https://github.com/Msahan16" }
+            ].map(({ Icon, href }, index) => (
               <motion.a
                 key={index}
-                href="#"
+                href={href}
+                target={href.startsWith('http') ? '_blank' : undefined}
+                rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 className="bg-surface text-brand-50 p-2 lg:p-3 rounded border-2 border-brand-500 hover:bg-brand-500 hover:text-white transition-colors"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
@@ -87,12 +94,69 @@ export default function Home() {
         </motion.div>
 
         <motion.div
-          className="lg:w-[55%] w-full"
+          className="lg:w-[55%] w-full flex justify-center items-center"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeInOut" }}
         >
-          <img className="h-full w-full" src="/assets/hero-vector.svg" alt="Hero Vector" />
+          <motion.div
+            className="relative"
+            style={{ perspective: '1200px' }}
+          >
+            {/* 3D Container Back */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-br from-brand-500/20 to-brand-700/20 rounded-lg"
+              style={{
+                transform: 'rotateY(-15deg) rotateX(10deg) translateZ(-20px)',
+                boxShadow: 'inset 0 0 20px rgba(0,0,0,0.1)'
+              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+            />
+            
+            {/* 3D Container Sides */}
+            <motion.div
+              className="absolute top-0 left-0 w-full h-4 bg-gradient-to-r from-brand-600/30 to-transparent rounded-t-lg"
+              style={{
+                transform: 'rotateX(90deg) translateZ(10px)',
+              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+            />
+            
+            <motion.div
+              className="absolute top-0 right-0 w-4 h-full bg-gradient-to-b from-brand-600/30 to-transparent rounded-r-lg"
+              style={{
+                transform: 'rotateY(90deg) translateZ(10px)',
+              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.7, duration: 0.8 }}
+            />
+
+            {/* Main Image */}
+            <motion.img
+              className="relative h-full w-full max-w-md lg:max-w-lg rounded-lg shadow-2xl z-10"
+              src="/assets/sahan1.png"
+              alt="Mohamad Sahan"
+              style={{
+                transform: 'rotateY(-5deg) rotateX(5deg)',
+                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.05)'
+              }}
+              whileHover={{
+                rotateY: 0,
+                rotateX: 0,
+                scale: 1.05,
+                boxShadow: '0 35px 60px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1)'
+              }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+            />
+          </motion.div>
         </motion.div>
       </div>
     </div>

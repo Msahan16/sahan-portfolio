@@ -56,10 +56,17 @@ export default function Contact() {
               </motion.button>
 
               <div className='flex items-center gap-x-2 lg:gap-x-5'>
-                {[BiLogoGmail, IoLogoLinkedin, IoLogoWhatsapp, BsGithub].map((Icon, index) => (
+                {[
+                  { Icon: BiLogoGmail, href: "mailto:mohammedshn2002@gmail.com" },
+                  { Icon: IoLogoLinkedin, href: "https://www.linkedin.com/in/mohamad-sahan" },
+                  { Icon: IoLogoWhatsapp, href: "https://wa.me/94704268704" },
+                  { Icon: BsGithub, href: "https://github.com/Msahan16" }
+                ].map(({ Icon, href }, index) => (
                   <motion.a
                     key={index}
-                    href={index === 0 ? "mailto:mohammedshn@2002@gmail.com" : "#"}
+                    href={href}
+                    target={href.startsWith('http') ? '_blank' : undefined}
+                    rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                     className="bg-surface text-brand-50 p-2 lg:p-3 rounded border-2 border-brand-500 hover:bg-brand-500 hover:text-white transition-colors"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
@@ -89,12 +96,12 @@ export default function Contact() {
             <motion.a
               whileHover={{ x: 5 }}
               className='flex items-center gap-2 group'
-              href="mailto:mohammedshn@2002@gmail.com"
+              href="mailto:mohammedshn2002@gmail.com"
             >
               <span className='border-2 transition-all border-transparent group-hover:border-brand-500 rounded-full p-1'>
                 <IoMdMail className="w-4 h-4 lg:w-5 lg:h-5" />
               </span>
-              mohammedshn@2002@gmail.com
+              mohammedshn2002@gmail.com
             </motion.a>
 
             <motion.a
