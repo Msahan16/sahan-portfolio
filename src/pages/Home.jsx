@@ -41,7 +41,7 @@ export default function Home() {
                   // 1000,
                 ]}
                 speed={10}
-                style={{ fontWeight:600 }}
+                style={{ fontWeight: 600 }}
                 repeat={Infinity}
               />
             </motion.h2>
@@ -54,7 +54,7 @@ export default function Home() {
                 Engineer
               </span>
             </motion.h2>
-            
+
           </motion.div>
 
           <motion.p
@@ -114,7 +114,7 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
             />
-            
+
             {/* 3D Container Sides */}
             <motion.div
               className="absolute top-0 left-0 w-full h-4 bg-gradient-to-r from-brand-600/30 to-transparent rounded-t-lg"
@@ -125,7 +125,7 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             />
-            
+
             <motion.div
               className="absolute top-0 right-0 w-4 h-full bg-gradient-to-b from-brand-600/30 to-transparent rounded-r-lg"
               style={{
@@ -151,10 +151,9 @@ export default function Home() {
                 scale: 1.05,
                 boxShadow: '0 35px 60px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1)'
               }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.2 }}
             />
           </motion.div>
         </motion.div>
