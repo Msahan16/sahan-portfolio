@@ -43,7 +43,7 @@ export default function Navbar() {
           className="h-9 cursor-pointer text-lg font-bold flex items-center"
           aria-label="Go to home"
         >
-        Sahan's  Portfolio
+          Sahan's  Portfolio
         </motion.button>
 
         <ul className="hidden lg:flex items-center gap-x-7 font-semibold">
@@ -65,7 +65,7 @@ export default function Navbar() {
         </ul>
 
         <motion.a
-          href="https://drive.google.com/file/d/1OOfiWyYhEFUyZ_MeipW9Yngtj2XMxOwp/view?usp=sharing"
+          href="/assets/Resume_Sahan.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="hidden relative lg:inline-block px-4 py-2 font-medium group"
@@ -115,7 +115,7 @@ export default function Navbar() {
                 </motion.li>
               ))}
               <motion.a
-                href="https://drive.google.com/file/d/1OOfiWyYngtj2XMxOwp/view?usp=sharing"
+                href="/assets/Resume_Sahan.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative inline-block px-4 py-2 font-semibold group"
