@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FaJs, FaReact, FaNodeJs, FaPhp, FaDatabase,FaJava } from "react-icons/fa";
+import { FaJs, FaReact, FaNodeJs, FaPhp, FaDatabase, FaJava } from "react-icons/fa";
 import { BiLogoPostgresql } from "react-icons/bi";
-import { RiNextjsFill,RiTailwindCssFill } from "react-icons/ri";
+import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
 import { CgFigma } from "react-icons/cg";
 
 export default function Skills() {
@@ -15,13 +15,13 @@ export default function Skills() {
     {
       id: 2,
       title: 'Backend',
-      items: ['PHP', 'C#', 'Java','C++', 'Node.js', 'Laravel', 'Spring Boot']
+      items: ['PHP', 'C#', 'Java', 'C++', 'Node.js', 'Laravel', 'Spring Boot']
     },
 
     {
       id: 3,
       title: 'Tools & Databases',
-      items: ['Firebase','MySQL', 'MongoDB','Git/GitHub', 'Postman','Android Studio', 'Power BI']
+      items: ['Firebase', 'MySQL', 'MongoDB', 'Git/GitHub', 'Postman', 'Android Studio', 'Power BI']
     }
   ];
 
@@ -32,10 +32,10 @@ export default function Skills() {
       role: "Software Engineer Intern",
       period: "Sept 2025 - Present",
       description:
-  "Worked on developing and maintaining CRM-based web and mobile applications using Laravel, React, and MySQL. Built RESTful APIs, integrated mobile and web frontends, managed databases, and contributed to feature development, bug fixing, and performance optimization within an agile team environment.",
+        "Worked on developing and maintaining CRM-based web and mobile applications using Laravel, React, and MySQL. Built RESTful APIs, integrated mobile and web frontends, managed databases, and contributed to feature development, bug fixing, and performance optimization within an agile team environment.",
       logo: "/assets/we.png",
     },
-    
+
   ]);
 
   return (
@@ -106,22 +106,44 @@ export default function Skills() {
               }}
               viewport={{ once: true }}
             >
-              <div className="flex justify-between flex-col items-start lg:flex-row lg:items-center">
-                <div className="flex items-center gap-5">
-                      <img
-                        className="w-22 h-22 lg:w-28 lg:h-28 object-contain"
+              {/* Mobile Layout (stacked) */}
+              <div className="flex flex-col lg:hidden">
+                <div className="flex items-center gap-4">
+                  <img
+                    className="w-16 h-16 sm:w-20 sm:h-20 object-contain flex-shrink-0"
                     src={exp.logo}
                     alt={exp.company + " logo"}
                   />
-                  <h2 className="font-semibold text-white text-lg lg:text-xl">
-                    {exp.role} at {exp.company}
-                  </h2>
+                  <div className="flex flex-col min-w-0">
+                    <h2 className="font-semibold text-white text-base sm:text-lg break-words">
+                      {exp.role}
+                    </h2>
+                    <span className="text-brand-400 text-sm">at {exp.company}</span>
+                  </div>
                 </div>
-                <span className="text-[#D4D4D8] font-semibold text-sm mt-4 lg:mt-0 lg:text-base">
+                <span className="text-[#D4D4D8] font-semibold text-xs sm:text-sm mt-3">
                   {exp.period}
                 </span>
               </div>
-              <p className="text-[#D4D4D8] mt-6 text-sm/6 lg:text-base font-light">
+
+              {/* Desktop Layout (horizontal) */}
+              <div className="hidden lg:flex justify-between items-center">
+                <div className="flex items-center gap-5">
+                  <img
+                    className="w-24 h-24 xl:w-28 xl:h-28 object-contain flex-shrink-0"
+                    src={exp.logo}
+                    alt={exp.company + " logo"}
+                  />
+                  <h2 className="font-semibold text-white text-xl">
+                    {exp.role} at {exp.company}
+                  </h2>
+                </div>
+                <span className="text-[#D4D4D8] font-semibold text-base flex-shrink-0 ml-4">
+                  {exp.period}
+                </span>
+              </div>
+
+              <p className="text-[#D4D4D8] mt-4 lg:mt-6 text-sm leading-relaxed lg:text-base font-light">
                 {exp.description}
               </p>
             </motion.div>
